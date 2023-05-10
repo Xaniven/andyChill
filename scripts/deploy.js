@@ -7,6 +7,6 @@
 import hre from "hardhat";
 
 const Lock = await hre.ethers.getContractFactory("AndyChill");
-const lock = await Lock.deploy("addUri");
+const lock = await Lock.deploy();
 
 await lock.deployed();

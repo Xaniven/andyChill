@@ -4,6 +4,8 @@ require("@nomicfoundation/hardhat-toolbox");
 module.exports = {
   solidity: "0.8.9",
   networks: {
-    chainId: 1337,
+    harhat: {
+      url: "1337",
+    },
   },
 };
