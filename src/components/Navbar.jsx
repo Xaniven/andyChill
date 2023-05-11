@@ -11,13 +11,11 @@ export default function Navbar({ setAccounts }) {
 
   return (
     <>
-      <nav className='min-w-[100vw] min-h-[12vh] bg-slate-500'>
-        <button className=' bg-slate-600 h-8 w-8 ' onClick={connectWallet}>
+      <nav className='min-w-[100vw] min-h-[12vh] bg-red-500'>
+        <button className=' bg-slate-600' onClick={connectWallet}>
           {" "}
           connect wallet
         </button>
-
-        <div className='bg-black h-8 w-8'> </div>
       </nav>
     </>
   );

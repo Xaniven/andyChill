@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "../components/Navbar";
+import Navbar from "./components/Navbar";
 import "./App.scss";
 
 const contractAddy = "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512";
