@@ -1,21 +1,12 @@
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 import "./App.scss";
 
+const contractAddy = "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512";
+
 function App() {
-  const contractAddy = "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512";
-
-  const [accounts, setAccount] = useState();
+  const [accounts, setAccounts] = useState();
   const [quantity, setQuantity] = useState(1);
-
-  async function connectWallet() {
-    if (window.ethereum) {
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
-      setAccount(accounts);
-      console.log(accounts);
-    }
-  }
 
   async function mintToken() {
     if (window.ethereum) {
@@ -33,7 +24,7 @@ function App() {
       }
     }
   }
-  //
+  //not sure if i'll have a burn but
   async function burnToken() {
     if (window.ethereum) {
       const provider = new ethers.provider.Web3Provider(window.ethereum);
@@ -52,7 +43,7 @@ function App() {
   }
   return (
     <div className='App'>
-      <button onClick={connectWallet}> connect wallet</button>
+      <Navbar setAccounts={setAccounts} />
     </div>
   );
 }
