@@ -1,6 +1,10 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import "./App.scss";
+import About from "./components/About";
+import Mint from "./components/Mint";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
 
 const contractAddy = "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512";
 
@@ -43,7 +47,12 @@ function App() {
   }
   return (
     <div className='App'>
-      <Navbar setAccounts={setAccounts} />
+      <span id='top'></span>
+      <Navbar setAccounts={setAccounts} accounts={accounts} />
+      <Hero />
+      <About />
+      <Mint />
+      <Footer />
     </div>
   );
 }
