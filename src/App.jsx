@@ -46,13 +46,14 @@ function App() {
     }
   }
   return (
-    <div className='App'>
-      <span id='top'></span>
+    <div className='App text-white'>
       <Navbar setAccounts={setAccounts} accounts={accounts} />
-      <Hero />
-      <About />
-      <Mint />
-      <Footer />
+      <div className=''>
+        <Hero />
+        <About />
+        <Mint />
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -13,7 +13,7 @@ export default function Navbar({ setAccounts, accounts }) {
   return (
     <>
       <nav
-        className='max-w-[100vw] h-[10vh] px-4 bg-stone-900 shadow-xl sticky top-0 z-10'
+        className='max-w-[100vw] h-[10vh] px-4 bg-stone-900 shadow-xl sticky top-0 z-20'
         aria-label='main menu'
       >
         <div className='w-[100%] h-[90%] p-4 flex items-center justify-evenly text-white '>
@@ -23,7 +23,7 @@ export default function Navbar({ setAccounts, accounts }) {
           <div className='w-[100%] flex justify-start'>
             <ul className='w-[35vw] flex justify-evenly text-xl '>
               <li className='hover:underline hover:text-red-600 hover:scale-105'>
-                <a href='#top'> Home</a>
+                <a href='#home'> Home</a>
               </li>
               <li className='hover:underline hover:text-red-600 hover:scale-105'>
                 <a href='#about'> Who am i?</a>
