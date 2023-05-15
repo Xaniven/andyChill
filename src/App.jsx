@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ethers } from "hardhat";
 import Navbar from "./components/Navbar";
 import "./App.scss";
 import About from "./components/About";
@@ -52,11 +53,11 @@ function App() {
         <div className=''>
           <Hero />
           <About />
-          <Mint />
+          <Mint accounts={accounts} mint={mintToken} />
           <Footer />
         </div>
       </div>
-      //replace this with fuction to check if browser is mobile
+      {/* //replace this with fuction to check if browser is mobile */}
       <div className='ifMobile block lg:hidden'>Please use a desktop browser</div>
     </>
   );
