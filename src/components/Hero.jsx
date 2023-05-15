@@ -2,7 +2,18 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <section id='home' className='h-[90vh] max-w-[100vw] bg-green-950  top-[0]  px-10 pt-8'>
+    <section id='home' className='h-[90vh] max-w-[100vw] px-10 pt-8 relative'>
+      <div className='absolute block top-0 left-0 w-[100%] overflow-hidden -z-10'>
+        <svg
+          className='relative block w-[100%] h-[100vh]'
+          data-name='Layer 1'
+          xmlns='http://www.w3.org/2000/svg'
+          viewBox='0 0 1200 120'
+          preserveAspectRatio='none'
+        >
+          <path d='M1200 120L0 0 0 0 1200 0 1200 120z' className='fill-[#95f80a]'></path>
+        </svg>
+      </div>
       dsajyhgdsk Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eos doloremque laborum
       officia, alias, perspiciatis soluta culpa, optio explicabo possimus deleniti hic sint?
       Expedita assumenda eum vero similique, nobis fugit quasi odio quo temporibus minus quos quae

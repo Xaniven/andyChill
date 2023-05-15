@@ -46,15 +46,19 @@ function App() {
     }
   }
   return (
-    <div className='App text-white'>
-      <Navbar setAccounts={setAccounts} accounts={accounts} />
-      <div className=''>
-        <Hero />
-        <About />
-        <Mint />
-        <Footer />
+    <>
+      <div className='App text-black hidden lg:block'>
+        <Navbar setAccounts={setAccounts} accounts={accounts} />
+        <div className=''>
+          <Hero />
+          <About />
+          <Mint />
+          <Footer />
+        </div>
       </div>
-    </div>
+      //replace this with fuction to check if browser is mobile
+      <div className='ifMobile block lg:hidden'>Please use a desktop browser</div>
+    </>
   );
 }
 
