@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ethers } from "hardhat";
+
 import Navbar from "./components/Navbar";
 import "./App.scss";
 import About from "./components/About";
@@ -13,22 +13,6 @@ function App() {
   const [accounts, setAccounts] = useState();
   const [quantity, setQuantity] = useState(1);
 
-  async function mintToken() {
-    if (window.ethereum) {
-      const provider = new ethers.provider.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const contract = new ethers.contract({
-        contractAddy,
-        contractABI,
-        signer,
-      });
-      try {
-        const response = await contract.mint(BigNumber.from(quantity));
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }
   //not sure if i'll have a burn but
   async function burnToken() {
     if (window.ethereum) {
@@ -53,7 +37,7 @@ function App() {
         <div className=''>
           <Hero />
           <About />
-          <Mint accounts={accounts} mint={mintToken} />
+          <Mint accounts={accounts} />
           <Footer />
         </div>
       </div>

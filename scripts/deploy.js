@@ -10,3 +10,8 @@ const Lock = await hre.ethers.getContractFactory("AndyChill");
 const lock = await Lock.deploy();
 
 await lock.deployed();
+
+// main().then(()=> process.exit(0)).catch((err) =>{
+//     console.error(err)
+//     process.exit(1);
+// })

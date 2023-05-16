@@ -1,7 +1,29 @@
 import React, { useState } from "react";
+import andyChillAbi from "../andyChillAbi.json";
+import { ethers, BigNumber } from "ethers";
 import "../App.scss";
 
-export default function Mint({ accounts, mint }) {
+const contractAddy = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+const contractABI = andyChillAbi.abi;
+
+async function mintToken() {
+  if (window.ethereum) {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract({
+      contractAddy,
+      contractABI,
+      signer,
+    });
+    try {
+      const response = await contract.mint(BigNumber.from(mintCount));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
   return (
     <section id='mint' className='h-[90vh]  max-w-[100vw] px-10 relative grid place-content-center'>
@@ -26,11 +48,17 @@ export default function Mint({ accounts, mint }) {
           <div className=' text-2xl m-2'>
             <button onClick={() => setMintCount(1)}>-</button>
             <input className='w-8 m-2 text-center' value={mintCount} />
-            <button onClick={() => setMintCount(2)}>+</button>
+            <button
+              onClick={() => {
+                setMintCount(2);
+              }}
+            >
+              +
+            </button>
             <p className='text-sm'>(limit 2)</p>
           </div>
           <button
-            onClick={() => mint()}
+            onClick={() => console.log(andyChillAbi.abi)}
             className=' text-2xl w-[fit] p-2 rounded-xl bg-red-700 border-2 border-white hover:bg-red-600 hover:scale-105'
           >
             Mint
