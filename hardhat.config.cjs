@@ -11,7 +11,7 @@ module.exports = {
   },
   networks: {
     harhat: {
-      url: "1337",
+      url: "31337",
     },
   },
 };

@@ -14,32 +14,30 @@ function App() {
   const [quantity, setQuantity] = useState(1);
 
   //not sure if i'll have a burn but
-  async function burnToken() {
-    if (window.ethereum) {
-      const provider = new ethers.provider.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-      const contract = new ethers.contract({
-        contractAddy,
-        contractABI,
-        signer,
-      });
-      try {
-        const response = await contract.burn(BigNumber.from(quantity));
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }
+  // async function burnToken() {
+  //   if (window.ethereum) {
+  //     const provider = new ethers.provider.Web3Provider(window.ethereum);
+  //     const signer = provider.getSigner();
+  //     const contract = new ethers.contract({
+  //       contractAddy,
+  //       contractABI,
+  //       signer,
+  //     });
+  //     try {
+  //       const response = await contract.burn(BigNumber.from(quantity));
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // }
   return (
     <>
       <div className='App text-black hidden lg:block'>
         <Navbar setAccounts={setAccounts} accounts={accounts} />
-        <div className=''>
-          <Hero />
-          <About />
-          <Mint accounts={accounts} />
-          <Footer />
-        </div>
+        <Hero />
+        <About />
+        <Mint accounts={accounts} />
+        <Footer />
       </div>
       {/* //replace this with fuction to check if browser is mobile */}
       <div className='ifMobile block lg:hidden'>Please use a desktop browser</div>
