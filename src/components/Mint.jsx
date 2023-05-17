@@ -1,25 +1,23 @@
 import React, { useState } from "react";
-import andyChillAbi from "../andyChillAbi.json";
+import { abi } from "../andyChillAbi.json";
 import { ethers, BigNumber } from "ethers";
 import "../App.scss";
-
-const contractAddy = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
-const contractABI = andyChillAbi.abi;
+const contractAddy = "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0";
 
 async function mintToken() {
-  if (window.ethereum) {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-    const contract = new ethers.Contract({
-      contractAddy,
-      contractABI,
-      signer,
-    });
-    try {
-      const response = await contract.mint(BigNumber.from(mintCount));
-    } catch (error) {
-      console.log(error);
-    }
+  console.log(abi);
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const contract = new ethers.Contract({
+    contractAddy,
+    abi,
+    signer,
+  });
+  try {
+    const response = await contract.uri(BigNumber.from(mintCount));
+    console.log(response);
+  } catch (error) {
+    console.log(error);
   }
 }
 
@@ -58,8 +56,9 @@ export default function Mint({ accounts }) {
             <p className='text-sm'>(limit 2)</p>
           </div>
           <button
-            onClick={() => console.log(andyChillAbi.abi)}
-            className=' text-2xl w-[fit] p-2 rounded-xl bg-red-700 border-2 border-white hover:bg-red-600 hover:scale-105'
+            disabled={!accounts}
+            onClick={() => mintToken()}
+            className=' text-2xl w-[fit] p-2 rounded-xl bg-red-700 border-2 border-white '
           >
             Mint
           </button>

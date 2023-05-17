@@ -11,7 +11,7 @@
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@openzeppelin/contracts": "^4.8.3",
-    "ethers": "^5.4.3",
+    "ethers": "^5.4.7",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",

@@ -34,9 +34,10 @@ export default function Navbar({ setAccounts, accounts }) {
             </ul>
           </div>
           <button
+            disabled={accounts}
             className={
               accounts
-                ? "w-[fit] p-2 rounded-xl bg-red-800 hover:bg-red-600 border border-white hover:scale-105 group  hidden lg:block"
+                ? "w-[fit] p-2 rounded-xl bg-red-800  border border-white  group  hidden lg:block"
                 : "w-[10vw] py-2 rounded-xl bg-red-800 hover:bg-red-600 border border-white hover:scale-105 group hidden lg:block "
             }
             onClick={connectWallet}
