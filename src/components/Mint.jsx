@@ -1,28 +1,35 @@
 import React, { useState } from "react";
-import { abi } from "../andyChillAbi.json";
+import * as info from "../andychill.json";
 import { ethers, BigNumber } from "ethers";
 import "../App.scss";
-const contractAddy = "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0";
-
-async function mintToken() {
-  console.log(abi);
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const contract = new ethers.Contract({
-    contractAddy,
-    abi,
-    signer,
-  });
-  try {
-    const response = await contract.uri(BigNumber.from(mintCount));
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
-}
 
 export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
+
+  async function mintToken() {
+    // const provider = new ethers.providers.Web3Provider(window.ethereum);
+    // const signer = provider.getSigner();
+    // const tx = signer.sendTransaction({
+    //   to: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    //   value: ethers.utils.parseEther("0.5"),
+    // });
+    console.log(abi.map);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract({
+      contractAddy,
+      info.abi,
+      signer,
+    });
+    try {
+      const response = await contract.uri(BigNumber.from(mintCount));
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+    console.log(window.ethersProvider.getGasPrice());
+  }
+
   return (
     <section id='mint' className='h-[90vh]  max-w-[100vw] px-10 relative grid place-content-center'>
       <div class='absolute top-[-2px] left-0 w-[100%] overflow-hidden rotate-180 -z-9'>
