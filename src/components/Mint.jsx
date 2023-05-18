@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import * as info from "../andychill.json";
+import * as andychill from "../andychill.json";
 import { ethers, BigNumber } from "ethers";
 import "../App.scss";
+
+const contractAddy = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 
 export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
@@ -13,21 +15,16 @@ export default function Mint({ accounts }) {
     //   to: "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
     //   value: ethers.utils.parseEther("0.5"),
     // });
-    console.log(abi.map);
+
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-    const contract = new ethers.Contract({
-      contractAddy,
-      info.abi,
-      signer,
-    });
+    const signer = provider.getSigner(0);
+    const contract = new ethers.Contract(contractAddy, andychill.abi, signer);
     try {
-      const response = await contract.uri(BigNumber.from(mintCount));
+      const response = await contract.mint(BigNumber.from(mintCount), BigNumber.from(mintCount));
       console.log(response);
     } catch (error) {
       console.log(error);
     }
-    console.log(window.ethersProvider.getGasPrice());
   }
 
   return (

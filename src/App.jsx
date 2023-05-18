@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 const contractAddy = "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512";
 
 function App() {
-  const [accounts, setAccounts] = useState();
+  const [accounts, setAccounts] = useState([]);
   const [quantity, setQuantity] = useState(1);
 
   //not sure if i'll have a burn but

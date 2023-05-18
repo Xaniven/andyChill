@@ -34,7 +34,7 @@ export default function Navbar({ setAccounts, accounts }) {
             </ul>
           </div>
           <button
-            disabled={accounts}
+            disabled={accounts[0]}
             className={
               accounts
                 ? "w-[fit] p-2 rounded-xl bg-red-800  border border-white  group  hidden lg:block"
@@ -42,9 +42,7 @@ export default function Navbar({ setAccounts, accounts }) {
             }
             onClick={connectWallet}
           >
-            {accounts
-              ? accounts[0].slice(0, 4) + "..." + accounts[0].slice(36, 42)
-              : "Connect Wallet"}
+            {accounts[0] ? accounts[0].slice(0, 4) + "..." + accounts[0].slice(36, 42) : "Connect"}
             <div className=' hidden group-hover:block absolute -right-2 m-2'>
               {accounts ? accounts[0] : ""}
             </div>
