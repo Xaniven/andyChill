@@ -28,7 +28,10 @@ export default function Mint({ accounts }) {
   }
 
   return (
-    <section id='mint' className='h-[90vh]  max-w-[100vw] px-10 relative grid place-content-center'>
+    <section
+      id='mint'
+      className='h-[90vh]  max-w-[100vw] px-10 relative grid place-content-center snap-start'
+    >
       <div class='absolute top-[-2px] left-0 w-[100%] overflow-hidden rotate-180 -z-9'>
         <svg
           className='relative block w-[100%] h-[150px]'
@@ -60,9 +63,9 @@ export default function Mint({ accounts }) {
             <p className='text-sm'>(limit 2)</p>
           </div>
           <button
-            disabled={!accounts}
-            onClick={() => mintToken()}
-            className=' text-2xl w-[fit] p-2 rounded-xl bg-red-700 border-2 border-white '
+            disabled={!accounts[0]}
+            onClick={accounts[0] ? () => mintToken() : () => alert("Please Connect")}
+            className=' text-2xl  p-2 rounded-xl hover:bg-sky-400 bg-sky-600 border-2 border-white disabled:bg-slate-500 '
           >
             Mint
           </button>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <section id='home' className='h-[90vh] max-w-[100vw] px-10 pt-8 relative'>
+    <section id='home' className='h-[90vh] max-w-[100vw] px-10 pt-8 relative snap-start'>
       <div className='absolute block top-0 left-0 w-[100%] overflow-hidden -z-10'>
         <svg
           className='relative block w-[100%] h-[100vh]'

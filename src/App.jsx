@@ -31,8 +31,8 @@ function App() {
   //   }
   // }
   return (
-    <>
-      <div className='App text-black hidden lg:block'>
+    <div className='snap-mandatory'>
+      <div className='App text-black hidden lg:block snap-mandatory'>
         <Navbar setAccounts={setAccounts} accounts={accounts} />
         <Hero />
         <About />
@@ -41,7 +41,7 @@ function App() {
       </div>
       {/* //replace this with fuction to check if browser is mobile */}
       <div className='ifMobile block lg:hidden'>Please use a desktop browser</div>
-    </>
+    </div>
   );
 }
 

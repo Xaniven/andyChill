@@ -11,6 +11,8 @@
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
     "@openzeppelin/contracts": "^4.8.3",
+    "@walletconnect/auth-client": "^2.1.0",
+    "@web3modal/standalone": "^2.4.1",
     "ethers": "^5.5.4",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
