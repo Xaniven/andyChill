@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import Navbar from "./components/Navbar";
 import "./App.scss";
 import About from "./components/About";
@@ -31,8 +30,8 @@ function App() {
   //   }
   // }
   return (
-    <div className='snap-mandatory'>
-      <div className='App text-black hidden lg:block snap-mandatory'>
+    <div className=''>
+      <div className='App text-black hidden lg:block'>
         <Navbar setAccounts={setAccounts} accounts={accounts} />
         <Hero />
         <About />
@@ -40,7 +39,7 @@ function App() {
         <Footer />
       </div>
       {/* //replace this with fuction to check if browser is mobile */}
-      <div className='ifMobile block lg:hidden'>Please use a desktop browser</div>
+      <div className='ifMobile block lg:hidden'>Mobile Browsers not currently supported</div>
     </div>
   );
 }
