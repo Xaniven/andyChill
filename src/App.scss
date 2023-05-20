@@ -16,3 +16,24 @@ body {
   height: 120vh;
   // transform: rotateY(180deg);
 }
+
+.rain {
+  border-radius: 50%;
+  --angle: 0deg;
+
+  border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
+
+  animation: 7s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
