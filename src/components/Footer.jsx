@@ -1,12 +1,10 @@
-import React from "react";
-
 export default function Footer() {
   return (
     <footer className='h-[10vh] text-center text-black px-10 relative'>
       Andy Chillmeleon 2023 <br />
       <p className='underline text-sky-600'>
         {" "}
-        An NFT project by <a href='https://www.twitter.com/xaniven'>Xaniven.eth</a>
+        An NFT art project by <a href='https://www.twitter.com/xaniven'>Xaniven.eth</a>
       </p>
       <div className='absolute bottom-0 left-0 w-[100%] overflow-hidden rotate-180 -z-10'>
         <svg
