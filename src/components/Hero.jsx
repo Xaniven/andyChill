@@ -28,7 +28,7 @@ export default function Hero() {
           <p className='text-2xl'>
             Born into a colorful world in May of 2021, I immediately became tranfixed with you
             humans and your self expression. One of you particularly entriged me, one Mr. Warhol. I
-            knew on sight, he was the one I would imitate and based myself on.
+            knew on sight, he was the one I would imitate and base myself on.
           </p>
         </div>
         <div className=' absolute bottom-[25%] left-[33%] w-96 '>
