@@ -16,15 +16,14 @@ contract AndyChill is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
         ERC1155(
             "https://gateway.pinata.cloud/ipfs/QmVTxY2Xt3KjnrvoDCsXpex1hDfPxEapWGDcqhnS1JSj82"
         )
-    {
-        _mint(msg.sender, tokenID, 1, "");
-    }
+    {}
 
     function setURI(string memory newuri) public onlyOwner {
         _setURI(newuri);
     }
 
     function mint(uint256 id, uint256 amount) public payable {
+        require(msg.value >= (.02 ether * amount), "Not enough Eth");
         require(balances[msg.sender] < 2, "Limit 2 Tokens");
         balances[msg.sender] += amount;
         _mint(msg.sender, id, amount, "");
