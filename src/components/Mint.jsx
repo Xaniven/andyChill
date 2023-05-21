@@ -4,7 +4,7 @@ import * as andychill from "../andychill.json";
 import shots from "../assets/IMG-0179.png";
 import "../App.scss";
 
-const contractAddy = "0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0";
+const contractAddy = "0xa51c1fc2f0d1a1b8494ed1fe312d7c3a78ed91c0";
 
 export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
@@ -21,7 +21,9 @@ export default function Mint({ accounts }) {
     const signer = provider.getSigner(0);
     const contract = new ethers.Contract(contractAddy, andychill.abi, signer);
     try {
-      const response = await contract.mint(1, BigNumber.from(mintCount));
+      const response = await contract.mint(1, BigNumber.from(mintCount), {
+        value: ethers.utils.parseEther(String(0.02 * mintCount)),
+      });
       console.log(response);
     } catch (error) {
       console.log(error);
