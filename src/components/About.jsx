@@ -14,7 +14,11 @@ export default function About() {
           <path d='M1200 120L0 1 0 0 1200 0 1200 120z' class='fill-[#ef2bb7]'></path>
         </svg>
       </div>
-      <img src={andysec} width={"360px"} alt='' />
+      <img
+        src={andysec}
+        alt=''
+        className=' drop-shadow-2xl h-[75%] shadow-2xl border-8 border-sky-500 absolute right-20 top-20'
+      />
     </section>
   );
 }
