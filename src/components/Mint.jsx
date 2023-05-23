@@ -5,11 +5,12 @@ import shots from "../assets/IMG-0179.png";
 import "../App.scss";
 import Spinner from "./Spinner";
 
-const contractAddy = "0x610178da211fef7d417bc0e6fed39f05609ad788";
-
+const contractAddy = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+// console.log("log: " + log, " event: " + event);
 export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
   const [awaitMint, setAwaitMint] = useState(false);
+  const [txConfirm, setTxConfirm] = useState({});
 
   async function mintToken() {
     // const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -23,14 +24,24 @@ export default function Mint({ accounts }) {
     const signer = provider.getSigner(0);
     const contract = new ethers.Contract(contractAddy, andychill.abi, signer);
 
+    const filter = {
+      address: contractAddy,
+      events: [
+        // the name of the event, parnetheses containing the data type of each event, no spaces
+        ethers.utils.id("MintComplete(address,uint256)"),
+      ],
+    };
     try {
       await contract.mint(1, BigNumber.from(mintCount));
-      contract.on(contract.Mint(signer, BigNumber.from(Number(mintCount))), (log, event) => {
-        console.log(event);
-        if (log.event === "Mint") {
+      contract.on(filter, (log, _reciver) => {
+        console.log(log, _reciver);
+
+        if (log.event === "MintComplete") {
+          setTxConfirm(log);
           setAwaitMint(false);
-          document.getElementById("mintButton").className =
-            "text-2xl p-2 rounded-xl hover:bg-sky-400 bg-green-600 border-2 border-white";
+          document.getElementById("mintButton").className = "hidden";
+          document.getElementById("onComplete").className = "text-md p-2 underline";
+          document.getElementById("onComp").setAttribute("disabled", "true");
         }
       });
     } catch (error) {
@@ -57,7 +68,7 @@ export default function Mint({ accounts }) {
           ></path>
         </svg>
       </div>
-      <div className='h-[60vh] w-[60vw] bg-slate-600 border-2 border-black rounded-xl grid place-content-center text-center'>
+      <div className='min-h-[fit] w-[60vw] bg-slate-600 border-2 border-black rounded-xl grid place-content-center text-center p-4'>
         <div className='h-[fit] w-[50vw] bg-slate-300 rounded-xl border-4 border-white grid place-content-center p-2'>
           <div className='w-[100%] grid place-content-center'>
             <img
@@ -85,13 +96,29 @@ export default function Mint({ accounts }) {
             Connected Wallet: {accounts ? accounts[0] : "No wallet connected"}
           </p>
           <button
+            id='mintButton'
             disabled={!accounts[0]}
             onClick={() => mintToken().then(setAwaitMint(true))}
-            className='mintButton text-2xl  p-2 rounded-xl hover:bg-sky-400 bg-sky-600 border-2 border-white disabled:bg-slate-500 '
+            className='text-2xl  p-2 rounded-xl hover:bg-sky-400 bg-sky-600 border-2 border-white disabled:bg-slate-500 '
           >
             {accounts[0] ? awaitMint ? <Spinner /> : "Mint" : "Please Connect"}
           </button>
-          <p className='text-md p-2 underline hover:text-blue-600'>
+          <p id='onComplete' className='hidden '>
+            <button
+              id='onComp'
+              className='text-2xl p-2 rounded-xl bg-green-600 border-2 border-white'
+            >
+              Minted {mintCount} NFT{mintCount === 1 ? "" : "'s"}
+            </button>
+            <br />
+            <a
+              className='hover:text-blue-600'
+              href={"https://etherscan.io/tx/" + txConfirm.transactionHash}
+            >
+              View Transaction on Etherscan
+            </a>
+          </p>
+          <p className='text-md  underline hover:text-blue-600'>
             <a href=''> View contract on Etherscan</a>
           </p>
         </div>
