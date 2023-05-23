@@ -3,11 +3,13 @@ import { ethers, BigNumber } from "ethers";
 import * as andychill from "../andychill.json";
 import shots from "../assets/IMG-0179.png";
 import "../App.scss";
+import Spinner from "./Spinner";
 
-const contractAddy = "0xa51c1fc2f0d1a1b8494ed1fe312d7c3a78ed91c0";
+const contractAddy = "0x610178da211fef7d417bc0e6fed39f05609ad788";
 
 export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
+  const [awaitMint, setAwaitMint] = useState(false);
 
   async function mintToken() {
     // const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -20,11 +22,17 @@ export default function Mint({ accounts }) {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner(0);
     const contract = new ethers.Contract(contractAddy, andychill.abi, signer);
+
     try {
-      const response = await contract.mint(1, BigNumber.from(mintCount), {
-        value: ethers.utils.parseEther(String(0.02 * mintCount)),
+      await contract.mint(1, BigNumber.from(mintCount));
+      contract.on(contract.Mint(signer, BigNumber.from(Number(mintCount))), (log, event) => {
+        console.log(event);
+        if (log.event === "Mint") {
+          setAwaitMint(false);
+          document.getElementById("mintButton").className =
+            "text-2xl p-2 rounded-xl hover:bg-sky-400 bg-green-600 border-2 border-white";
+        }
       });
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -78,10 +86,10 @@ export default function Mint({ accounts }) {
           </p>
           <button
             disabled={!accounts[0]}
-            onClick={() => mintToken()}
-            className=' text-2xl  p-2 rounded-xl hover:bg-sky-400 bg-sky-600 border-2 border-white disabled:bg-slate-500 '
+            onClick={() => mintToken().then(setAwaitMint(true))}
+            className='mintButton text-2xl  p-2 rounded-xl hover:bg-sky-400 bg-sky-600 border-2 border-white disabled:bg-slate-500 '
           >
-            {accounts[0] ? "Mint" : "Please Connect"}
+            {accounts[0] ? awaitMint ? <Spinner /> : "Mint" : "Please Connect"}
           </button>
           <p className='text-md p-2 underline hover:text-blue-600'>
             <a href=''> View contract on Etherscan</a>
