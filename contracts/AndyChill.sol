@@ -22,13 +22,13 @@ contract AndyChill is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
         _setURI(_newuri);
     }
 
-    event Mint(address indexed _reciver, uint256 indexed _amount);
+    event MintComplete(address _reciver, uint256 _amounts);
 
     function mint(uint256 _id, uint256 _amount) public {
         // require(balances[msg.sender] < 2, "Limit 2 Tokens");
         balances[msg.sender] += _amount;
         _mint(msg.sender, _id, _amount, "");
-        emit Mint(msg.sender, _amount);
+        emit MintComplete(msg.sender, _amount);
     }
 
     function _beforeTokenTransfer(
