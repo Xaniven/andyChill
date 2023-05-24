@@ -23,9 +23,9 @@ export default function Hero() {
           className=' drop-shadow-2xl h-[75%] shadow-2xl border-8 border-sky-500 absolute left-20 top-20'
           alt=''
         />
-        <div className='w-[60vw] h-fit rotate-[28deg] absolute top-[35vh] right-12'>
+        <div className='w-[60vw] h-fit rotate-[28deg] absolute top-[35vh] right-12 bg-neutral-300 rounded-xl p-2 drop-shadow-2xl shadow-2xl'>
           <h1 className=' text-5xl font-bold pb-2'>I am Andy Chill</h1>
-          <p className='text-2xl'>
+          <p className='text-2xl '>
             Born into a colorful world in May of 2021, I immediately became tranfixed with you
             humans and your self expression. One of you particularly entriged me, one Mr. Warhol. I
             knew on sight, he was the one I would imitate and base myself on.
