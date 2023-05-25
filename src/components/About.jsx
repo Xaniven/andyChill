@@ -22,7 +22,7 @@ export default function About() {
       />
       <div className='w-[55vw] h-[100%] p-2 absolute flex flex-col justify-evenly text-leftrounded-xl'>
         <div className='w-[100%] '>
-          <p className='relative  w-[75%] opacity-80 bg-white rounded-xl p-2 drop-shadow-2xl shadow-2xl '>
+          <p className='relative  w-[75%] opacity-80 bg-white rounded-xl p-4 drop-shadow-xl shadow-xl '>
             {" "}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
             fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos
@@ -32,7 +32,7 @@ export default function About() {
           </p>
         </div>
         <div className='w-[100%] flex justify-end'>
-          <p className=' w-[75%]  bg-white rounded-xl p-2 opacity-80 drop-shadow-2xl shadow-2xl'>
+          <p className=' w-[75%]  bg-white rounded-xl p-4 opacity-80 drop-shadow-xl shadow-xl'>
             {" "}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
             fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos
@@ -42,7 +42,7 @@ export default function About() {
           </p>
         </div>
         <div className='w-[100%]'>
-          <p className='relative  w-[75%] bg-white rounded-xl p-2 opacity-80 drop-shadow-2xl shadow-2xl'>
+          <p className='relative  w-[75%] bg-white rounded-xl p-4 opacity-80 drop-shadow-xl shadow-xl'>
             {" "}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
             fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos
