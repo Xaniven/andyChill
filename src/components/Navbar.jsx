@@ -5,8 +5,8 @@ import WC from "../assets/WC.svg";
 import CB from "../assets/CB.svg";
 import "../App.scss";
 
-const projectId = "Don't leak";
-
+const projectId = import.meta.env.VITE_WALLET_CONNECT_KEY;
+console.log(import.meta.env.VITE_WALLET_CONNECT_KEY);
 const web3Modal = new Web3Modal({
   projectId,
   walletConnectVersion: 2,
