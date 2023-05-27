@@ -6,6 +6,7 @@ export default function Hero() {
     <m.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
       id='home'
       className='h-[90vh] max-w-[100vw] px-10 pt-8 relative snap-start grid place-items-center '
     >

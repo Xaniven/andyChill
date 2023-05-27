@@ -40,13 +40,14 @@ const { uri } = await authClient.request({
   nonce: generateNonce(),
   statement: "Sign in with wallet.",
 });
-async function walletConnect() {
-  const walletConnectWallet = await web3Modal.openModal({ uri });
-  console.log(walletConnectWallet);
-  setAccounts(walletConnectWallet);
-}
 
 export default function Navbar({ setAccounts, accounts }) {
+  async function walletConnect() {
+    const walletConnectWallet = await web3Modal.openModal({ uri });
+    console.log(walletConnectWallet);
+    setAccounts(walletConnectWallet);
+  }
+
   async function connectWallet() {
     if (window.ethereum) {
       const accounts = await window.ethereum.request({
