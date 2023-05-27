@@ -4,6 +4,7 @@ import * as andychill from "../andychill.json";
 import shots from "../assets/IMG-0179.png";
 import "../App.scss";
 import Spinner from "./Spinner";
+import { motion as m } from "framer-motion";
 
 const contractAddy = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 // console.log("log: " + log, " event: " + event);
@@ -68,7 +69,11 @@ export default function Mint({ accounts }) {
           ></path>
         </svg>
       </div>
-      <div className='min-h-[fit] w-[60vw] bg-slate-600 border-2 border-black rounded-xl grid place-content-center text-center p-4'>
+      <m.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        className='min-h-[fit] w-[60vw] bg-slate-600 border-2 border-black rounded-xl grid place-content-center text-center p-4'
+      >
         <div className='h-[fit] w-[50vw] bg-slate-300 rounded-xl border-4 border-white grid place-content-center p-2'>
           <div className='w-[100%] grid place-content-center'>
             <img
@@ -122,7 +127,7 @@ export default function Mint({ accounts }) {
             <a href=''> View contract on Etherscan</a>
           </p>
         </div>
-      </div>
+      </m.div>
     </section>
   );
 }

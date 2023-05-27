@@ -1,8 +1,11 @@
 import andyMain from "../assets/IMG-0193.png";
+import { motion as m } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section
+    <m.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       id='home'
       className='h-[90vh] max-w-[100vw] px-10 pt-8 relative snap-start grid place-items-center '
     >
@@ -37,6 +40,6 @@ export default function Hero() {
           -Andy Chill
         </div>
       </div>
-    </section>
+    </m.section>
   );
 }

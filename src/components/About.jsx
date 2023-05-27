@@ -1,5 +1,6 @@
 import andysec from "../assets/IMG-0176.png";
 import "../App.scss";
+import { motion as m } from "framer-motion";
 
 export default function About() {
   return (
@@ -15,14 +16,24 @@ export default function About() {
         </svg>
       </div>
 
-      <img
+      <m.img
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0 }}
         src={andysec}
         alt=''
         className=' drop-shadow-2xl shadow-2xl  h-[75%] border-8 border-sky-500 absolute right-20 top-20 opacity-90'
       />
-      <div className='w-[55vw] h-[100%] p-2 absolute flex flex-col justify-evenly text-leftrounded-xl'>
+      <m.div
+        initial={{ opacity: 0, x: -1000 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        className='w-[55vw] h-[100%] p-2 absolute flex flex-col justify-evenly text-leftrounded-xl'
+      >
         <div className='w-[100%] '>
-          <p className='relative  w-[75%] opacity-80 bg-white rounded-xl p-4 drop-shadow-xl shadow-xl '>
+          <p
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className='relative  w-[75%] opacity-80 bg-white rounded-xl p-4 drop-shadow-xl shadow-xl '
+          >
             {" "}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
             fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos
@@ -51,7 +62,7 @@ export default function About() {
             quam, voluptas natus eligendi distinctio. Ea, cupiditate?
           </p>
         </div>
-      </div>
+      </m.div>
     </section>
   );
 }
