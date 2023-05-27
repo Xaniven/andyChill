@@ -27,7 +27,7 @@ export default function About() {
       <m.div
         initial={{ opacity: 0, x: -1000 }}
         whileInView={{ opacity: 1, x: 0 }}
-        className='w-[55vw] h-[100%] p-2 absolute flex flex-col justify-evenly text-leftrounded-xl'
+        className='w-[55vw] h-[100%] p-2 absolute flex flex-col justify-evenly text-left rounded-xl  font-semibold'
       >
         <m.div
           initial={{ opacity: 0, x: 100 }}
@@ -35,7 +35,7 @@ export default function About() {
           transition={{ delay: 0.2 }}
           className='w-[100%] '
         >
-          <p className='relative  w-[75%] opacity-80 bg-white rounded-xl p-4 drop-shadow-xl shadow-xl '>
+          <p className='relative  w-[75%] opacity-90 bg-slate-200 rounded-xl p-4 drop-shadow-xl shadow-xl border-4 border-black '>
             {" "}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
             fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos
@@ -50,7 +50,7 @@ export default function About() {
           transition={{ delay: 0.5 }}
           className='w-[100%] flex justify-end'
         >
-          <p className=' w-[75%]  bg-white rounded-xl p-4 opacity-80 drop-shadow-xl shadow-xl'>
+          <p className=' w-[75%]  bg-slate-200 rounded-xl p-4 opacity-90 drop-shadow-xl shadow-xl border-4 border-black'>
             {" "}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
             fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos
@@ -62,10 +62,10 @@ export default function About() {
         <m.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.8 }}
+          transition={{ delay: 0.7 }}
           className='w-[100%]'
         >
-          <p className='relative  w-[75%] bg-white rounded-xl p-4 opacity-80 drop-shadow-xl shadow-xl'>
+          <p className='relative  w-[75%] bg-slate-200 rounded-xl p-4 opacity-90 drop-shadow-xl shadow-xl border-4 border-black'>
             {" "}
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
             fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos

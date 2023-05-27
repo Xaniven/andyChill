@@ -86,8 +86,8 @@ export default function Navbar({ setAccounts, accounts }) {
               disabled={true}
               className={
                 accounts[0]
-                  ? "rain w-[12vw] p-2 rounded-xl bg-sky-700  border-4 border-white "
-                  : "rain w-[12vw] p-2 rounded-xl bg-sky-700 hover:bg-sky-600 border-4 border-white "
+                  ? "w-[12vw] p-2 rounded-xl bg-sky-700  border-2 border-white  "
+                  : "w-[12vw] p-2 rounded-xl bg-sky-700 hover:bg-sky-600 border-2 border-white  "
               }
             >
               {accounts[0]

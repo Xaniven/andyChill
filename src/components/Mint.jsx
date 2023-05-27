@@ -7,7 +7,7 @@ import Spinner from "./Spinner";
 import { motion as m } from "framer-motion";
 
 const contractAddy = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
-// console.log("log: " + log, " event: " + event);
+
 export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
   const [awaitMint, setAwaitMint] = useState(false);
@@ -67,15 +67,15 @@ export default function Mint({ accounts }) {
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5 }}
-        className='min-h-[fit] w-[60vw] bg-slate-600 border-2 border-black rounded-xl grid place-content-center text-center p-4'
+        className='min-h-[fit] w-[60vw] bg-slate-500 border-2 border-black rounded-xl grid place-content-center text-center p-4'
       >
-        <div className='h-[fit] w-[50vw] bg-slate-300 rounded-xl border-4 border-white grid place-content-center p-2'>
+        <div className='h-[fit] w-[50vw] bg-slate-300 rounded-xl border-4 border-slate-800 grid place-content-center p-2'>
           <div className='w-[100%] grid place-content-center'>
             <img
               src={shots}
               width={"240px"}
               alt=''
-              className='border-4 border-black hover:scale-150'
+              className='rain border-4 border-black hover:scale-150'
             />
           </div>
           <p className='text-2xl font-bold underline w-[100%] '> Mint 'Shots'</p>
@@ -99,14 +99,14 @@ export default function Mint({ accounts }) {
             id='mintButton'
             disabled={!accounts[0]}
             onClick={() => mintToken().then(setAwaitMint(true))}
-            className='text-2xl  p-2 rounded-xl hover:bg-sky-400 bg-sky-600 border-2 border-white disabled:bg-slate-500 '
+            className=' text-2xl  p-2 rounded-xl hover:bg-sky-400 bg-sky-600 border-2 border-white disabled:bg-slate-500 '
           >
             {accounts[0] ? awaitMint ? <Spinner /> : "Mint" : "Please Connect"}
           </button>
           <p id='onComplete' className='hidden '>
             <button
               id='onComp'
-              className='text-2xl p-2 rounded-xl bg-green-600 border-2 border-white'
+              className='rain text-2xl p-2 rounded-xl bg-green-600 border-2 border-white'
             >
               Minted {mintCount} NFT{mintCount === 1 ? "" : "'s"}
             </button>

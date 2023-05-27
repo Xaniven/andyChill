@@ -24,7 +24,7 @@ export default function Hero() {
       <div className='heroContent flex h-[100%] max-w-[100vw]'>
         <img
           src={andyMain}
-          className=' drop-shadow-2xl h-[75%] shadow-2xl border-8 border-sky-500 absolute left-20 top-20'
+          className='rain drop-shadow-2xl h-[75%] shadow-2xl border-8 border-sky-500 absolute left-20 top-20'
           alt=''
         />
         <div className='w-[60vw] h-fit rotate-[28deg] absolute top-[35vh] right-12 bg-neutral-300 rounded-xl p-2 drop-shadow-2xl shadow-2xl'>

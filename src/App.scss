@@ -18,7 +18,6 @@ body {
 }
 
 .rain {
-  border-radius: 50%;
   --angle: 0deg;
 
   border-image: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red) 1;
