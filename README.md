@@ -1,4 +1,4 @@
-# Andy Chill an NFT project by Xaniven.eth
+# 'Andy Chill' an NFT project by Xaniven.eth
 
 Will anyone event read this?
 
