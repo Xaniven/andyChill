@@ -7,14 +7,16 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
 contract AndyChill is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
-    uint256 public tokenID = 1;
+    uint256 public tokenID = 0;
 
     //Track wallet token balances
     mapping(address => uint256) public balances;
+    string public name = "Andy Chill";
+    string public symbol = "Chill";
 
     constructor()
         ERC1155(
-            "https://gateway.pinata.cloud/ipfs/QmVTxY2Xt3KjnrvoDCsXpex1hDfPxEapWGDcqhnS1JSj82"
+            "https://gateway.pinata.cloud/ipfs/QmQrsgMPJxZihqicPeBMCi2frT4iPWrQC2B3d38jgU78nY"
         )
     {}
 
