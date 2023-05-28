@@ -1,10 +1,11 @@
 {
-    "name": "Self Reflective Shots",
-    "description": "Just a Chillmeleon that like the art.", 
+    "name": "The First Shift",
+    "description": "Just a Chillmeleon that like the art, so he became it.", 
     "image": "https://gateway.pinata.cloud/ipfs/QmRuN2ZEPvHTf33NfWrGRonVZEvgY2Rw6gacdSoWXeGt9C", 
     "external_url": "https://andychill.xyz", 
     "animation_url":"",
     "attributes": [   {
+    
         "display_type": "date", 
         "trait_type": "birthday", 
         "value": 1546360800

@@ -7,8 +7,6 @@ import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Burnable.sol";
 import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 
 contract AndyChill is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
-    uint256 public tokenID = 0;
-
     //Track wallet token balances
     mapping(address => uint256) public balances;
     string public name = "Andy Chill";
@@ -24,13 +22,26 @@ contract AndyChill is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
         _setURI(_newuri);
     }
 
+    //Mint event for ui listener
     event MintComplete(address _reciver, uint256 _amounts);
 
     function mint(uint256 _id, uint256 _amount) public {
+        //Remove comment before depoly
         // require(balances[msg.sender] < 2, "Limit 2 Tokens");
         balances[msg.sender] += _amount;
         _mint(msg.sender, _id, _amount, "");
         emit MintComplete(msg.sender, _amount);
+    }
+
+    function sendToFriend(
+        uint256 _id,
+        uint256 _amount,
+        address reciver
+    ) public {
+        require(balances[reciver] < 2, "They already have 2! ");
+        balances[reciver] += _amount;
+        _mint(reciver, _id, _amount, "");
+        emit MintComplete(reciver, _amount);
     }
 
     function _beforeTokenTransfer(
