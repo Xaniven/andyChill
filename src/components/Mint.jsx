@@ -6,7 +6,7 @@ import "../App.scss";
 import Spinner from "./Spinner";
 import { motion as m } from "framer-motion";
 
-const contractAddy = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+const contractAddy = "0xb7f8bc63bbcad18155201308c8f3540b07f84f5e";
 
 export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
@@ -27,7 +27,7 @@ export default function Mint({ accounts }) {
     };
     try {
       //call mint on contract
-      await contract.mint(1, BigNumber.from(mintCount));
+      await contract.mint(0, BigNumber.from(mintCount));
       //listen for MintComplete event
       contract.on(filter, (log, _reciver) => {
         //sets new ui on MintComplete
@@ -41,6 +41,7 @@ export default function Mint({ accounts }) {
       });
     } catch (error) {
       console.log(error);
+      setAwaitMint(false);
     }
   }
 
@@ -119,7 +120,7 @@ export default function Mint({ accounts }) {
             </a>
           </p>
           <p className='text-md  underline hover:text-blue-600'>
-            <a href='UPDATE_ON_DEPLOY'> View contract on Etherscan</a>
+            <a href='UPDATE_ON_DEPLOY'> Verify contract on Etherscan</a>
           </p>
         </div>
       </m.div>
