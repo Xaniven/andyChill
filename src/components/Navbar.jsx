@@ -1,5 +1,6 @@
 import AuthClient, { generateNonce } from "@walletconnect/auth-client";
 import { Web3Modal } from "@web3modal/standalone";
+import { BsDiscord } from "react-icons/bs";
 import MMfox from "../assets/MetaMask_Fox.svg";
 import WC from "../assets/WC.svg";
 import CB from "../assets/CB.svg";
@@ -65,7 +66,7 @@ export default function Navbar({ setAccounts, accounts }) {
         aria-label='main menu'
       >
         <div className='w-[100%] h-[100%] p-4 flex items-center justify-evenly text-white '>
-          <a href='/' className='w-[10vw] p-2 text-2xl'>
+          <a href='/' className='w-[12vw] p-2 text-2xl'>
             Andy Chill
           </a>
           <div className='w-[100%] h-fit flex justify-start'>
@@ -81,7 +82,25 @@ export default function Navbar({ setAccounts, accounts }) {
               </li>
             </ul>
           </div>
-          <div className='group peer w-fit h-[10vh] grid place-items-center text-center'>
+          <a
+            href='https://discord.gg/fQB7gcHd'
+            className='inline-block pr-6 hover:text-sky-600 hover:scale-105 '
+          >
+            <div className='group peer w-fit h-[10vh] grid place-items-center text-center '>
+              {" "}
+              <BsDiscord size={"46px"} />
+              <iframe
+                src='https://discord.com/widget?id=1112479422247878699&theme=dark'
+                className='hidden absolute group-hover:block top-[10vh] shadow-xl drop-shadow-xl'
+                width='350'
+                height='500'
+                allowtransparency='true'
+                frameborder='0'
+                sandbox='allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts'
+              ></iframe>
+            </div>
+          </a>
+          <div className='group peer w-fit h-[10vh] grid place-items-center text-center '>
             <div
               disabled={true}
               className={
