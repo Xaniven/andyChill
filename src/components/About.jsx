@@ -1,6 +1,6 @@
+import { motion as m } from "framer-motion";
 import andysec from "../assets/IMG-0176.png";
 import "../App.scss";
-import { motion as m } from "framer-motion";
 
 export default function About() {
   return (
@@ -24,11 +24,7 @@ export default function About() {
         alt=''
         className=' drop-shadow-2xl shadow-2xl  h-[75%] border-8 border-sky-500 absolute right-20 top-20 opacity-90  '
       />
-      <m.div
-        initial={{ opacity: 0, x: -1000 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        className='w-[55vw] h-[100%] p-2 absolute flex flex-col justify-evenly text-left rounded-xl  font-semibold'
-      >
+      <div className='w-[55vw] h-[100%] p-2 absolute flex flex-col justify-evenly text-left rounded-xl  font-semibold'>
         <m.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -37,11 +33,9 @@ export default function About() {
         >
           <p className='relative  w-[75%] opacity-90 bg-slate-200 rounded-xl p-4 drop-shadow-xl shadow-xl border-4 border-black '>
             {" "}
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
-            fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos
-            quidem architecto provident harum alias consequuntur officiis minima consectetur labore
-            nobis numquam nostrum doloribus voluptatibus quaerat reprehenderit impedit non inventore
-            quam, voluptas natus eligendi distinctio. Ea, cupiditate?
+            Andy is a simple Chillmeleon, he like basking in the sun, swimming in the swamp and he
+            <span className=' font-bold italic'> likes the art.</span> One day while enjoying tacos
+            on beaches of miami, He cam across some art he liked and decided to become the artist.
           </p>
         </m.div>
         <m.div
@@ -52,11 +46,9 @@ export default function About() {
         >
           <p className=' w-[75%]  bg-slate-200 rounded-xl p-4 opacity-90 drop-shadow-xl shadow-xl border-4 border-black'>
             {" "}
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
-            fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos
-            quidem architecto provident harum alias consequuntur officiis minima consectetur labore
-            nobis numquam nostrum doloribus voluptatibus quaerat reprehenderit impedit non inventore
-            quam, voluptas natus eligendi distinctio. Ea, cupiditate?
+            Andy is a simple Chillmeleon, he like basking in the sun, swimming in the swamp and he
+            <span className=' font-bold italic'> likes the art.</span> One day while enjoying tacos
+            on beaches of miami, He cam across some art he liked and decided to become the artist.
           </p>
         </m.div>
         <m.div
@@ -67,14 +59,14 @@ export default function About() {
         >
           <p className='relative  w-[75%] bg-slate-200 rounded-xl p-4 opacity-90 drop-shadow-xl shadow-xl border-4 border-black'>
             {" "}
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit quod tenetur repellat
-            fuga commodi eius ullam, labore odit, quaerat pariatur expedita. Ipsam dignissimos
-            quidem architecto provident harum alias consequuntur officiis minima consectetur labore
-            nobis numquam nostrum doloribus voluptatibus quaerat reprehenderit impedit non inventore
-            quam, voluptas natus eligendi distinctio. Ea, cupiditate?
+            "Andy Chill" is an ERC-1155 project by Xaniven. This was an idea I had 2 years ago when
+            I first got into NFT's but didn't have the technical skills to do it at the time. I have
+            since learned solidity and web devlopment and wanted to bring the idea to fruition as a
+            side project to help me get a job. This project is ment to be a perfomative art project
+            and will change over time as I get new ideas and the skills to pull them off.
           </p>
         </m.div>
-      </m.div>
+      </div>
     </section>
   );
 }
