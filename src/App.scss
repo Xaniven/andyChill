@@ -16,7 +16,16 @@ body {
   height: 120vh;
   // transform: rotateY(180deg);
 }
-
+.wtf {
+  dialog[open] {
+    position: fixed;
+    left: 25%;
+    top: 25%;
+  }
+}
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.89);
+}
 .rain {
   --angle: 0deg;
 
