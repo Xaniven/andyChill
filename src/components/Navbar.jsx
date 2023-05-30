@@ -91,7 +91,7 @@ export default function Navbar({ setAccounts, accounts }) {
               <BsDiscord size={"46px"} />
               <iframe
                 src='https://discord.com/widget?id=1112479422247878699&theme=dark'
-                className='hidden absolute group-hover:block top-[10vh] shadow-xl drop-shadow-xl'
+                className='hidden absolute group-hover:block top-[9.8vh] shadow-xl drop-shadow-xl'
                 width='350'
                 height='500'
                 allowtransparency='true'
