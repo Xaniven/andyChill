@@ -2,16 +2,17 @@ import { useState } from "react";
 import { ethers, BigNumber } from "ethers";
 import * as andychill from "../andychill.json";
 import shots from "../assets/IMG-0179.png";
-import "../App.scss";
 import Spinner from "./Spinner";
 import { motion as m } from "framer-motion";
+import "../App.scss";
 
-const contractAddy = "0xb7f8bc63bbcad18155201308c8f3540b07f84f5e";
+const contractAddy = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 
 export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
   const [awaitMint, setAwaitMint] = useState(false);
   const [txConfirm, setTxConfirm] = useState({});
+  const [dueDil, setDueDil] = useState(false);
 
   async function mintToken() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -25,6 +26,8 @@ export default function Mint({ accounts }) {
         ethers.utils.id("MintComplete(address,uint256)"),
       ],
     };
+    const non = await provider.getTransactionCount(accounts[0]);
+    console.log(non);
     try {
       //call mint on contract
       await contract.mint(0, BigNumber.from(mintCount));
@@ -44,12 +47,9 @@ export default function Mint({ accounts }) {
       setAwaitMint(false);
     }
   }
-
+  const dia = document.getElementById("dia");
   return (
-    <section
-      id='mint'
-      className='h-[90vh]  max-w-[100vw] px-10 relative grid place-content-center snap-start'
-    >
+    <section id='mint' className='h-[90vh] max-w-[100vw] px-10 relative grid place-content-center '>
       <div class='absolute top-[-2px] left-0 w-[100%] overflow-hidden rotate-180 -z-9'>
         <svg
           className='relative block w-[100%] h-[150px]'
@@ -64,6 +64,7 @@ export default function Mint({ accounts }) {
           ></path>
         </svg>
       </div>
+
       <m.div
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
@@ -79,7 +80,7 @@ export default function Mint({ accounts }) {
               className='rain border-4 border-black hover:scale-150'
             />
           </div>
-          <p className='text-2xl font-bold underline w-[100%] '> Mint 'Shots'</p>
+          <p className='text-2xl font-bold underline w-[100%] '> Mint 'The First Shift'</p>
 
           <div className=' text-xl m-2'>
             <button onClick={() => setMintCount(1)}>-</button>
@@ -99,7 +100,7 @@ export default function Mint({ accounts }) {
           <button
             id='mintButton'
             disabled={!accounts[0]}
-            onClick={() => mintToken().then(setAwaitMint(true))}
+            onClick={() => (dueDil ? mintToken().then(setAwaitMint(true)) : dia.showModal())}
             className=' text-2xl  p-2 rounded-xl hover:bg-sky-400 bg-sky-600 border-2 border-white disabled:bg-slate-500 '
           >
             {accounts[0] ? awaitMint ? <Spinner /> : "Mint" : "Please Connect"}
@@ -107,9 +108,9 @@ export default function Mint({ accounts }) {
           <p id='onComplete' className='hidden '>
             <button
               id='onComp'
-              className='rain text-2xl p-2 rounded-xl bg-green-600 border-2 border-white'
+              className=' text-2xl p-2 rounded-xl bg-green-600 border-2 border-white'
             >
-              Minted {mintCount} NFT{mintCount === 1 ? "" : "'s"}
+              Minted: {mintCount} NFT{mintCount === 1 ? "" : "'s"}
             </button>
             <br />
             <a
@@ -124,6 +125,45 @@ export default function Mint({ accounts }) {
           </p>
         </div>
       </m.div>
+
+      <div className='wtf'>
+        <dialog
+          className=' h-[fit] p-2 w-[50%] border-4 bg-slate-400 border-black rounded-2xl text-center overflow-hidden '
+          id='dia'
+        >
+          <h1 className='text-2xl font-bold'>Due Diligence Check</h1>
+          <p className='font-bold p-2 text-lg'>
+            <span className='text-2xl'>
+              Signing a smart contract should be a conscience decision and you should get in the
+              habit of verifing before signing.{" "}
+            </span>
+            <br />
+            <span className='underline hover:text-sky-400 text-sky-700 '>
+              <a href=''> "Andy Chill" is and NFT project by @Xaniven</a> <br />
+            </span>
+            <span className='underline hover:text-sky-400 text-sky-700 '>
+              <a href=''> This smart contract can be verified on Etherscan </a> <br />
+            </span>
+            <span className='underline hover:text-sky-400 text-sky-700 '>
+              <a href=''> Site source code can be viewed on Github</a>
+            </span>
+          </p>
+          <form className='flex flex-col items-center  h-[100%] w-[100%] ' method='dialog'>
+            <div className='p-2'>
+              <input required type='checkbox' name='ddCheck' id='ddCheck' />
+              <label htmlFor='checkbox'>I have read & understand</label>
+            </div>
+            <button
+              className='w-fit bg-sky-600 p-2 rounded-lg '
+              onClick={() => {
+                setDueDil(true);
+              }}
+            >
+              Continue
+            </button>
+          </form>
+        </dialog>
+      </div>
     </section>
   );
 }
