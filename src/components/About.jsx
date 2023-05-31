@@ -22,7 +22,7 @@ export default function About() {
         transition={{ delay: 0.2 }}
         src={andysec}
         alt=''
-        className=' drop-shadow-2xl shadow-2xl  h-[75%] border-8 border-sky-500 absolute right-20 top-20 opacity-90  '
+        className='rain drop-shadow-2xl shadow-2xl  h-[75%] border-8 border-sky-500 absolute right-20 top-20 opacity-90  '
       />
       <div className='w-[55vw] h-[100%] p-2 absolute flex flex-col justify-evenly text-left rounded-xl  font-semibold'>
         <m.div
@@ -33,9 +33,10 @@ export default function About() {
         >
           <p className='relative  w-[75%] opacity-90 bg-slate-200 rounded-xl p-4 drop-shadow-xl shadow-xl border-4 border-black '>
             {" "}
-            Andy is a simple Chillmeleon, he like basking in the sun, swimming in the swamp and he
+            Andy is a simple Chillmeleon, he likes basking in the sun, swimming in the swamp and he
             <span className=' font-bold italic'> likes the art.</span> One day while enjoying tacos
-            on beaches of miami, He cam across some art he liked and decided to become the artist.
+            on beaches of miami, He came across some art he liked and decided it would become his
+            next inspiration.
           </p>
         </m.div>
         <m.div
@@ -46,15 +47,16 @@ export default function About() {
         >
           <p className=' w-[75%]  bg-slate-200 rounded-xl p-4 opacity-90 drop-shadow-xl shadow-xl border-4 border-black'>
             {" "}
-            Andy is a simple Chillmeleon, he like basking in the sun, swimming in the swamp and he
-            <span className=' font-bold italic'> likes the art.</span> One day while enjoying tacos
-            on beaches of miami, He cam across some art he liked and decided to become the artist.
+            Andy admired Warhol's ability to transform ordinary objects into captivating art.
+            Inspired, he sought to emulate this brilliance. With each sunlit morning, Andy he would
+            change his skin to reflect a different pop of color, and photograph it. He soon had
+            recreated is idols work, and minted for all the world to enjoy.
           </p>
         </m.div>
         <m.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.7 }}
+          transition={{ delay: 0.8 }}
           className='w-[100%]'
         >
           <p className='relative  w-[75%] bg-slate-200 rounded-xl p-4 opacity-90 drop-shadow-xl shadow-xl border-4 border-black'>
