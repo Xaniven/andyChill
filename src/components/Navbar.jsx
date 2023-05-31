@@ -48,7 +48,26 @@ export default function Navbar({ setAccounts, accounts }) {
     console.log(walletConnectWallet);
     setAccounts(walletConnectWallet);
   }
-
+  //make sure user is on polygon network
+  async function moveToPolygon() {
+    await window.ethereum.request({
+      method: "wallet_addEthereumChain",
+      params: [
+        {
+          chainId: "0x89",
+          rpcUrls: ["https://polygon-rpc.com/"],
+          chainName: "Matic Mainnet",
+          nativeCurrency: {
+            name: "MATIC",
+            symbol: "MATIC",
+            decimals: 18,
+          },
+          blockExplorerUrls: ["https://explorer.matic.network"],
+        },
+      ],
+    });
+  }
+  //connect metamask and coinbase wallet
   async function connectWallet() {
     if (window.ethereum) {
       const accounts = await window.ethereum.request({
@@ -57,6 +76,7 @@ export default function Navbar({ setAccounts, accounts }) {
 
       console.log(accounts);
       setAccounts(accounts);
+      moveToPolygon();
     }
   }
   return (
@@ -120,7 +140,7 @@ export default function Navbar({ setAccounts, accounts }) {
                       Current Wallet: <br /> {accounts[0]}
                     </p>
                     <button
-                      className='rain p-2 border-4 bg-sky-600  rounded-2xl hover:bg-sky-500 mb-2'
+                      className=' p-2 border-4 bg-sky-600  rounded-2xl hover:bg-sky-500 mb-2'
                       onClick={() => setAccounts([])}
                     >
                       Disconnect
