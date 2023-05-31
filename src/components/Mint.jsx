@@ -92,9 +92,9 @@ export default function Mint({ accounts }) {
             >
               +
             </button>
-            <p className='text-sm'>Price: Free +Gas (limit 2)</p>
+            <p className='text-sm rounded-xl p-1 bg-slate-200'>Price: Free +Gas (limit 2)</p>
           </div>
-          <p className='underline p-2'>
+          <p className='underline p-1 m-2 rounded-xl bg-slate-400'>
             Connected Wallet: {accounts ? accounts[0] : "No wallet connected"}
           </p>
           <button
@@ -116,12 +116,11 @@ export default function Mint({ accounts }) {
             <a
               className='hover:text-blue-600'
               href={"https://etherscan.io/tx/" + txConfirm.transactionHash}
+              target='_blank'
+              rel='noopener noreferrer'
             >
               View Transaction on Etherscan
             </a>
-          </p>
-          <p className='text-md  underline hover:text-blue-600'>
-            <a href='UPDATE_ON_DEPLOY'> Verify contract on Etherscan</a>
           </p>
         </div>
       </m.div>
@@ -131,21 +130,37 @@ export default function Mint({ accounts }) {
           className=' h-[fit] p-2 w-[50%] border-4 bg-slate-400 border-black rounded-2xl text-center overflow-hidden '
           id='dia'
         >
-          <h1 className='text-2xl font-bold'>Due Diligence Check</h1>
-          <p className='font-bold p-2 text-lg'>
-            <span className='text-2xl'>
-              Signing a smart contract should be a conscience decision and you should get in the
-              habit of verifing before signing.{" "}
+          <h1 className='text-2xl font-bold border-b-2 p-2 drop-shadow-lg'>Due Diligence Check</h1>
+          <p className='font-bold p-2 m-2 text-lg border-b-2 drop-shadow-lg'>
+            <span className='text-2xl italic underline underline-offset-4'>
+              Signing a smart contract should be a conscious decision and you should get in the
+              habit of verifing before signing any transaction!{" "}
             </span>
             <br />
-            <span className='underline hover:text-sky-400 text-sky-700 '>
-              <a href=''> "Andy Chill" is and NFT project by @Xaniven</a> <br />
+          </p>
+          <p className='  '>
+            <span className=' underline underline-offset-4 hover:text-sky-400 text-sky-700'>
+              <a href='https://twitter.com/xaniven' target='_blank' rel='noopener noreferrer'>
+                "Andy Chill" is and NFT project by @Xaniven.eth
+              </a>{" "}
+              <br />
             </span>
-            <span className='underline hover:text-sky-400 text-sky-700 '>
-              <a href=''> This smart contract can be verified on Etherscan </a> <br />
+            <span className='underline underline-offset-4 hover:text-sky-400 text-sky-700 '>
+              <a href='' target='_blank' rel='noopener noreferrer'>
+                {" "}
+                Verify contract on Etherscan.{" "}
+              </a>{" "}
+              <br />
             </span>
-            <span className='underline hover:text-sky-400 text-sky-700 '>
-              <a href=''> Site source code can be viewed on Github</a>
+            <span className='underline underline-offset-4 hover:text-sky-400 text-sky-700'>
+              <a
+                href='https://github.com/Xaniven/andyChill'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                {" "}
+                View website's source code on Github
+              </a>
             </span>
           </p>
           <form className='flex flex-col items-center  h-[100%] w-[100%] ' method='dialog'>
