@@ -1,5 +1,5 @@
 import { motion as m } from "framer-motion";
-import andysec from "../assets/IMG-0176.png";
+import andysec from "../assets/IMG-0177.png";
 import "../App.scss";
 
 export default function About() {
@@ -64,8 +64,8 @@ export default function About() {
             "Andy Chill" is an ERC-1155 project by Xaniven. This was an idea I had 2 years ago when
             I first got into NFT's but didn't have the technical skills to do it at the time. I have
             since learned solidity and web devlopment and wanted to bring the idea to fruition as a
-            side project to help me get a job. This project is ment to be a perfomative art project
-            and will change over time as I get new ideas and the skills to pull them off.
+            side project to help build my portfolio. This project is ment to be a perfomative art
+            project and will change over time as I get new ideas and the skills to pull them off.
           </p>
         </m.div>
       </div>
