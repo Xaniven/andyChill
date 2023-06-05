@@ -6,7 +6,8 @@ import Spinner from "./Spinner";
 import { motion as m } from "framer-motion";
 import "../App.scss";
 
-const contractAddy = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+// mumbai contract "0x3eE23a24eF93bc260a4E02E7913e0a6118228749";
+const contractAddy = "0x55d92654A198d9Ab47E26Cc83E83675CE29CD3ad";
 
 export default function Mint({ accounts }) {
   const [mintCount, setMintCount] = useState(1);
