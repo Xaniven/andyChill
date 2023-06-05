@@ -18,6 +18,8 @@ contract AndyChill is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
         )
     {}
 
+    // buy pinata gatway change uri before deploy
+
     function setURI(string memory _newuri) public onlyOwner {
         _setURI(_newuri);
     }
@@ -26,8 +28,7 @@ contract AndyChill is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
     event MintComplete(address _reciver, uint256 _amounts);
 
     function mint(uint256 _id, uint256 _amount) public {
-        //Remove comment before depoly
-        // require(balances[msg.sender] < 2, "Limit 2 Tokens");
+        require(balances[msg.sender] < 2, "Limit 2 Tokens");
         balances[msg.sender] += _amount;
         _mint(msg.sender, _id, _amount, "");
         emit MintComplete(msg.sender, _amount);
