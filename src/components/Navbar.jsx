@@ -104,7 +104,7 @@ export default function Navbar({ setAccounts, accounts }) {
             </ul>
           </div>
           <a
-            href='https://discord.gg/fQB7gcHd'
+            href='https://discord.gg/2hhpHbxuPX'
             className='inline-block pr-6 hover:text-sky-600 hover:scale-105 '
           >
             <div className='group peer w-fit h-[10vh] grid place-items-center text-center '>

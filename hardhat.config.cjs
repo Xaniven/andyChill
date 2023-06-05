@@ -13,5 +13,12 @@ module.exports = {
     harhat: {
       url: "31337",
     },
+    polygon: {
+      url: import.meta.env.VITE_INFURA,
+      accounts: import.meta.env.VITE_PRIVATE,
+    },
+  },
+  etherscan: {
+    apiKey: import.meta.env.VITE_POLYSCAN,
   },
 };

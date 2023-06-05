@@ -147,9 +147,13 @@ export default function Mint({ accounts }) {
               <br />
             </span>
             <span className='underline underline-offset-4 hover:text-sky-400 text-sky-700 '>
-              <a href='' target='_blank' rel='noopener noreferrer'>
+              <a
+                href='https://polygonscan.com/address/0x55d92654A198d9Ab47E26Cc83E83675CE29CD3ad#code'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 {" "}
-                Verify contract on Etherscan.{" "}
+                Verify contract on Polygonscan.{" "}
               </a>{" "}
               <br />
             </span>
