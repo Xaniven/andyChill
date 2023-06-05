@@ -47,6 +47,7 @@ export default function Navbar({ setAccounts, accounts }) {
     const walletConnectWallet = await web3Modal.openModal({ uri });
     console.log(walletConnectWallet);
     setAccounts(walletConnectWallet);
+    moveToPolygon();
   }
   //make sure user is on polygon network
   async function moveToPolygon() {
@@ -56,13 +57,13 @@ export default function Navbar({ setAccounts, accounts }) {
         {
           chainId: "0x89",
           rpcUrls: ["https://polygon-rpc.com/"],
-          chainName: "Matic Mainnet",
+          chainName: "Polygon Mainnet",
           nativeCurrency: {
             name: "MATIC",
             symbol: "MATIC",
             decimals: 18,
           },
-          blockExplorerUrls: ["https://explorer.matic.network"],
+          blockExplorerUrls: ["https://polygonscan.com/"],
         },
       ],
     });
