@@ -1,4 +1,4 @@
-import AuthClient, { generateNonce } from "@walletconnect/auth-client";
+import { AuthClient, generateNonce } from "@walletconnect/auth-client";
 import { Web3Modal } from "@web3modal/standalone";
 import { BsDiscord } from "react-icons/bs";
 import MMfox from "../assets/MetaMask_Fox.svg";
@@ -19,7 +19,7 @@ const web3Modal = new Web3Modal({
   //   },
   // ],
 });
-
+//Wallet Connect
 const authClient = await AuthClient.init({
   projectId,
   metadata: {
@@ -36,38 +36,39 @@ authClient.on("auth_response", () => {
 const { uri } = await authClient.request({
   aud: "https://yourapp.com/",
   domain: "yourapp.com",
-  chainId: "eip155:1",
+  chainId: "0x86",
   type: "eip4361",
   nonce: generateNonce(),
-  statement: "Sign in with wallet.",
+  statement: "Sign in with wallet, to chill with Andy",
 });
 
-export default function Navbar({ setAccounts, accounts }) {
-  async function walletConnect() {
-    const walletConnectWallet = await web3Modal.openModal({ uri });
-    console.log(walletConnectWallet);
-    setAccounts(walletConnectWallet);
-    moveToPolygon();
-  }
-  //make sure user is on polygon network
-  async function moveToPolygon() {
-    await window.ethereum.request({
-      method: "wallet_addEthereumChain",
-      params: [
-        {
-          chainId: "0x89",
-          rpcUrls: ["https://polygon-rpc.com/"],
-          chainName: "Polygon Mainnet",
-          nativeCurrency: {
-            name: "MATIC",
-            symbol: "MATIC",
-            decimals: 18,
-          },
-          blockExplorerUrls: ["https://polygonscan.com/"],
+//open WalletConnect modal
+async function walletConnect() {
+  const walletConnectWallet = await web3Modal.openModal({ uri });
+  console.log(walletConnectWallet);
+  setAccounts(walletConnectWallet);
+  moveToPolygon();
+}
+//make sure user is on polygon network
+export async function moveToPolygon() {
+  await window.ethereum.request({
+    method: "wallet_addEthereumChain",
+    params: [
+      {
+        chainId: "0x89",
+        rpcUrls: ["https://polygon-rpc.com/"],
+        chainName: "Polygon Mainnet",
+        nativeCurrency: {
+          name: "MATIC",
+          symbol: "MATIC",
+          decimals: 18,
         },
-      ],
-    });
-  }
+        blockExplorerUrls: ["https://polygonscan.com/"],
+      },
+    ],
+  });
+}
+export default function Navbar({ setAccounts, accounts }) {
   //connect metamask and coinbase wallet
   async function connectWallet() {
     if (window.ethereum) {
@@ -105,6 +106,8 @@ export default function Navbar({ setAccounts, accounts }) {
           </div>
           <a
             href='https://discord.gg/2hhpHbxuPX'
+            target='_blank'
+            rel='noopener noreferrer'
             className='inline-block pr-6 hover:text-sky-600 hover:scale-105 '
           >
             <div className='group peer w-fit h-[10vh] grid place-items-center text-center '>

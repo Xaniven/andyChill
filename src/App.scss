@@ -16,6 +16,7 @@ body {
   height: 120vh;
   // transform: rotateY(180deg);
 }
+//hacky solution to tailwind not working on dialog for some reason
 .wtf {
   dialog[open] {
     position: fixed;

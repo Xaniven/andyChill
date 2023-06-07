@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { ethers, BigNumber } from "ethers";
-import * as andychill from "../andychill.json";
-import shots from "../assets/IMG-0179.png";
 import Spinner from "./Spinner";
+import { moveToPolygon } from "./Navbar";
+import * as andychill from "../andychill.json";
 import { motion as m } from "framer-motion";
+import shots from "../assets/IMG-0179.png";
 import "../App.scss";
 
 // mumbai contract "0x3eE23a24eF93bc260a4E02E7913e0a6118228749";
@@ -16,10 +17,13 @@ export default function Mint({ accounts }) {
   const [dueDil, setDueDil] = useState(false);
 
   async function mintToken() {
+    moveToPolygon();
+
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner(0);
     const contract = new ethers.Contract(contractAddy, andychill.abi, signer);
-    //filter
+
+    //filter events for listner
     const filter = {
       address: contractAddy,
       events: [
@@ -27,8 +31,9 @@ export default function Mint({ accounts }) {
         ethers.utils.id("MintComplete(address,uint256)"),
       ],
     };
+
     const non = await provider.getTransactionCount(accounts[0]);
-    console.log(non);
+
     try {
       //call mint on contract
       await contract.mint(0, BigNumber.from(mintCount));
@@ -48,7 +53,9 @@ export default function Mint({ accounts }) {
       setAwaitMint(false);
     }
   }
+  //modal ref modal
   const dia = document.getElementById("dia");
+
   return (
     <section id='mint' className='h-[90vh] max-w-[100vw] px-10 relative grid place-content-center '>
       <div class='absolute top-[-2px] left-0 w-[100%] overflow-hidden rotate-180 -z-9'>
@@ -126,6 +133,7 @@ export default function Mint({ accounts }) {
         </div>
       </m.div>
 
+      {/* modal that doesn't play nice with tailwind */}
       <div className='wtf'>
         <dialog
           className=' h-[fit] p-2 w-[50%] border-4 bg-slate-400 border-black rounded-2xl text-center overflow-hidden '
