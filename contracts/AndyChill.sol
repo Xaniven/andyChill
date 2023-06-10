@@ -10,7 +10,7 @@ contract AndyChill is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply {
     //Track wallet token balances
     mapping(address => uint256) public balances;
     string public name = "Andy Chill";
-    string public symbol = "Chill";
+    string public symbol = "ChillAF";
 
     constructor()
         ERC1155(
