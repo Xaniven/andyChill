@@ -17,8 +17,7 @@ export default function Mint({ accounts }) {
   const [dueDil, setDueDil] = useState(false);
 
   async function mintToken() {
-    moveToPolygon();
-
+    //ethers set up
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner(0);
     const contract = new ethers.Contract(contractAddy, andychill.abi, signer);
@@ -31,8 +30,6 @@ export default function Mint({ accounts }) {
         ethers.utils.id("MintComplete(address,uint256)"),
       ],
     };
-
-    const non = await provider.getTransactionCount(accounts[0]);
 
     try {
       //call mint on contract
@@ -100,7 +97,7 @@ export default function Mint({ accounts }) {
             >
               +
             </button>
-            <p className='text-sm rounded-xl p-1 bg-slate-200'>Price: Free +Gas (limit 2)</p>
+            <p className='text-sm rounded-xl p-1 bg-slate-200'>Price: Free + Gas</p>
           </div>
           <p className='underline p-1 m-2 rounded-xl bg-slate-400'>
             Connected Wallet: {accounts ? accounts[0] : "No wallet connected"}
