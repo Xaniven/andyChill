@@ -19,36 +19,7 @@ const web3Modal = new Web3Modal({
   //   },
   // ],
 });
-//Wallet Connect
-const authClient = await AuthClient.init({
-  projectId,
-  metadata: {
-    name: "Andy Chill",
-    description: "Andy Chillmeleon NFT",
-    url: "https://andy.chill",
-    icons: ["https://lab.web3modal.com/favicon.ico"],
-  },
-});
-authClient.on("auth_response", () => {
-  web3Modal.closeModal();
-});
 
-const { uri } = await authClient.request({
-  aud: "https://yourapp.com/",
-  domain: "yourapp.com",
-  chainId: "0x86",
-  type: "eip4361",
-  nonce: generateNonce(),
-  statement: "Sign in with wallet, to chill with Andy",
-});
-
-//open WalletConnect modal
-async function walletConnect() {
-  const walletConnectWallet = await web3Modal.openModal({ uri });
-  console.log(walletConnectWallet);
-  setAccounts(walletConnectWallet);
-  moveToPolygon();
-}
 //make sure user is on polygon network
 export async function moveToPolygon() {
   await window.ethereum.request({
@@ -68,6 +39,7 @@ export async function moveToPolygon() {
     ],
   });
 }
+
 export default function Navbar({ setAccounts, accounts }) {
   //connect metamask and coinbase wallet
   async function connectWallet() {
@@ -80,6 +52,36 @@ export default function Navbar({ setAccounts, accounts }) {
       setAccounts(accounts);
       moveToPolygon();
     }
+  }
+
+  //open WalletConnect modal
+  async function walletConnect() {
+    //Wallet Connect
+    const authClient = await AuthClient.init({
+      projectId,
+      metadata: {
+        name: "Andy Chill",
+        description: "Andy Chillmeleon NFT",
+        url: "https://andy.chill",
+        icons: ["https://lab.web3modal.com/favicon.ico"],
+      },
+    });
+    authClient.on("auth_response", () => {
+      web3Modal.closeModal();
+    });
+
+    const { uri } = authClient.request({
+      aud: "https://yourapp.com/",
+      domain: "yourapp.com",
+      chainId: "0x86",
+      type: "eip4361",
+      nonce: generateNonce(),
+      statement: "Sign in with wallet, to chill with Andy",
+    });
+    const walletConnectWallet = await web3Modal.openModal({ uri });
+    console.log(walletConnectWallet);
+    setAccounts(walletConnectWallet);
+    moveToPolygon();
   }
   return (
     <>
