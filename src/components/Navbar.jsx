@@ -86,10 +86,21 @@ export default function Navbar({ setAccounts, accounts }) {
   return (
     <>
       <nav
-        className='max-w-[100vw] h-[10vh] px-4 bg-stone-900 shadow-xl sticky top-0 z-20 '
+        className='w-[100%] h-[10vh] px-4 bg-stone-900 shadow-xl sticky top-0 z-20'
         aria-label='main menu'
       >
-        <div className='w-[100%] h-[100%] p-4 flex items-center justify-evenly text-white '>
+        <div class='lg:hidden h-[100%]'>
+          <button class='navbar-burger flex items-center text-sky-600 p-2 h-[100%]'>
+            <svg
+              class='block h-8 w-8 fill-current'
+              viewBox='0 0 20 20'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z'></path>
+            </svg>
+          </button>
+        </div>
+        <div className='w-[100%] h-[100%] p-4  items-center justify-evenly text-white hidden lg:flex'>
           <a href='/' className='w-[12vw] p-2 text-2xl'>
             Andy Chill
           </a>

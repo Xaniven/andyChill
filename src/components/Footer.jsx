@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className='h-[10vh] text-center text-black px-10 relative'>
+    <footer className='max-w-[100vw] h-[10vh] text-center text-black px-10 relative'>
       Andy Chillmeleon 2023 <br />
       <p className='underline text-sky-600'>
         {" "}

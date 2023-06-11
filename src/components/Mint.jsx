@@ -54,7 +54,10 @@ export default function Mint({ accounts }) {
   const dia = document.getElementById("dia");
 
   return (
-    <section id='mint' className='h-[90vh] max-w-[100vw] px-10 relative grid place-content-center '>
+    <section
+      id='mint'
+      className='h-[90vh] max-w-[100vw] px-10 relative grid place-content-center overflow-hidden '
+    >
       <div class='absolute top-[-2px] left-0 w-[100%] overflow-hidden rotate-180 -z-9'>
         <svg
           className='relative block w-[100%] h-[150px]'
@@ -100,15 +103,15 @@ export default function Mint({ accounts }) {
             <p className='text-sm rounded-xl p-1 bg-slate-200'>Price: Free + Gas</p>
           </div>
           <p className='underline p-1 m-2 rounded-xl bg-slate-400'>
-            Connected Wallet: {accounts ? accounts[0] : "No wallet connected"}
+            Connected Wallet: {accounts ? accounts[0] || accounts : "No wallet connected"}
           </p>
           <button
             id='mintButton'
-            disabled={!accounts[0]}
+            disabled={!accounts[0] || !accounts}
             onClick={() => (dueDil ? mintToken().then(setAwaitMint(true)) : dia.showModal())}
             className=' text-2xl  p-2 rounded-xl hover:bg-sky-400 bg-sky-600 border-2 border-white disabled:bg-slate-500 '
           >
-            {accounts[0] ? awaitMint ? <Spinner /> : "Mint" : "Please Connect"}
+            {accounts[0] || accounts ? awaitMint ? <Spinner /> : "Mint" : "Please Connect"}
           </button>
           <p id='onComplete' className='hidden '>
             <button

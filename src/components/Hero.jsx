@@ -8,9 +8,9 @@ export default function Hero() {
       whileInView={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
       id='home'
-      className='h-[90vh] max-w-[100vw] px-10 pt-8 relative snap-start grid place-items-center '
+      className='min-h-[90vh] max-w-[100vw] lg:px-10 lg:pt-8 lg:relative grid place-items-center overflow-hidden '
     >
-      <div className='absolute block top-0 left-0 w-[100%] overflow-hidden -z-10'>
+      <div className='absolute block top-0 left-0 w-[100vw] -z-10'>
         <svg
           className='relative block w-[100%] h-[100vh]'
           data-name='Layer 1'
@@ -21,13 +21,13 @@ export default function Hero() {
           <path d='M1200 120L0 0 0 0 1200 0 1200 120z' className='fill-[#95f80a]'></path>
         </svg>
       </div>
-      <div className='heroContent flex h-[100%] max-w-[100vw]'>
+      <div className='heroContent flex-col lg:flex h-[100%] max-w-[100vw]'>
         <img
           src={andyMain}
-          className='rain drop-shadow-2xl h-[75%] shadow-2xl border-8 border-sky-500 absolute left-20 top-20'
+          className='rain drop-shadow-2xl ml-6 lg:h-[75%] lg:shadow-2xl border-8 border-sky-500 lg:absolute lg:left-20 lg:top-20'
           alt=''
         />
-        <div className='w-[60vw] h-fit rotate-[28deg] absolute top-[35vh] right-12 bg-neutral-300 rounded-xl p-2 drop-shadow-2xl shadow-2xl'>
+        <div className='lg:w-[60vw] lg:h-fit lg:rotate-[28deg] lg:absolute lg:top-[35vh] lg:right-12 bg-neutral-300 rounded-xl p-2 mt-2 drop-shadow-2xl shadow-2xl'>
           <h1 className=' text-5xl font-bold pb-2'>I am Andy Chill</h1>
           <p className='text-2xl '>
             Born into a colorful world in May of 2021, I immediately became tranfixed with you
@@ -35,7 +35,7 @@ export default function Hero() {
             knew on sight, he was the one I would imitate and base myself on.
           </p>
         </div>
-        <div className=' absolute bottom-[25%] left-[33%] w-96 '>
+        <div className=' lg:absolute lg:bottom-[25%] lg:left-[33%] w-96 pt-2'>
           “Art is anything you can get away with. -Andy Warhol”
           <br />
           -Andy Chill

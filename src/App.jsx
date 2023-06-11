@@ -12,7 +12,7 @@ export default function App() {
   const [accounts, setAccounts] = useState([]);
 
   return (
-    <div className=''>
+    <div className='max-w-[100vw]'>
       <div className='App text-black'>
         <Navbar setAccounts={setAccounts} accounts={accounts} />
         <Hero />
