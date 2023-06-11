@@ -24,7 +24,7 @@ export default function About() {
         alt=''
         className='rain drop-shadow-2xl shadow-2xl  lg:h-[75%] border-8 border-sky-500 lg:absolute right-20 top-20 opacity-90  '
       />
-      <div className='lg:w-[55vw] h-[100%] p-2 lg:absolute flex flex-col gap-8 lg:gap-0 justify-evenly text-left rounded-xl  font-semibold'>
+      <div className='lg:w-[55vw] h-[100%] p-2 lg:absolute flex flex-col gap-16 lg:gap-0 justify-evenly text-left rounded-xl  font-semibold'>
         <m.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}

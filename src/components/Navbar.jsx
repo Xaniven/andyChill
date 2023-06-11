@@ -5,6 +5,7 @@ import MMfox from "../assets/MetaMask_Fox.svg";
 import WC from "../assets/WC.svg";
 import CB from "../assets/CB.svg";
 import "../App.scss";
+import { useState } from "react";
 
 const projectId = import.meta.env.VITE_WALLET_CONNECT_KEY;
 
@@ -41,6 +42,8 @@ export async function moveToPolygon() {
 }
 
 export default function Navbar({ setAccounts, accounts }) {
+  const [toggleMenu, setToggleMenu] = useState(false);
+
   //connect metamask and coinbase wallet
   async function connectWallet() {
     if (window.ethereum) {
@@ -89,8 +92,13 @@ export default function Navbar({ setAccounts, accounts }) {
         className='w-[100%] h-[10vh] px-4 bg-stone-900 shadow-xl sticky top-0 z-20'
         aria-label='main menu'
       >
-        <div class='lg:hidden h-[100%]'>
-          <button class='navbar-burger flex items-center text-sky-600 p-2 h-[100%]'>
+        <div class='lg:hidden flex h-[100%]'>
+          <button
+            onClick={() => {
+              setToggleMenu(!toggleMenu);
+            }}
+            class='navbar-burger flex items-center text-sky-600 p-2 h-[100%]'
+          >
             <svg
               class='block h-8 w-8 fill-current'
               viewBox='0 0 20 20'
@@ -99,7 +107,47 @@ export default function Navbar({ setAccounts, accounts }) {
               <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z'></path>
             </svg>
           </button>
+          <p className='text-2xl pt-8 text-center w-[100%] text-white'>AndyChill.eth</p>
+          <div
+            className={
+              toggleMenu ? " bg-slate-600 h-[90vh] w-[35vw] absolute left-0 top-[10vh]" : "hidden"
+            }
+          >
+            <ul className=' h-[80%] flex flex-col justify-evenly text-2xl text-center '>
+              <li className='underline underline-offset-2 hover:text-sky-600 hover:scale-105'>
+                <a href='#home'> Home</a>
+              </li>
+              <li className=' underline underline-offset-2 hover:text-sky-600 hover:scale-105'>
+                <a href='#about'> Who am i?</a>
+              </li>
+              <li className=' underline underline-offset-2 hover:text-sky-600 hover:scale-105'>
+                <a href='#mint'> Mint</a>
+              </li>
+            </ul>
+            <div className='h-[15%] flex flex-col justify-between'>
+              <button
+                onClick={() => {
+                  connectWallet;
+                  setToggleMenu(false);
+                }}
+                className='flex w-[100%] justify-evenly border-b-2 p-6'
+              >
+                <img src={MMfox} width={"36px"} alt='' />
+                <img src={CB} width={"36px"} alt='' />
+              </button>
+              <button
+                onClick={() => {
+                  walletConnect;
+                  setToggleMenu(false);
+                }}
+              >
+                {" "}
+                <img src={WC} width={"240px"} alt='Wallet Connect Logo' />
+              </button>
+            </div>
+          </div>
         </div>
+
         <div className='w-[100%] h-[100%] p-4  items-center justify-evenly text-white hidden lg:flex'>
           <a href='/' className='w-[12vw] p-2 text-2xl'>
             Andy Chill

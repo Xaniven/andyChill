@@ -21,10 +21,10 @@ export default function Hero() {
           <path d='M1200 120L0 0 0 0 1200 0 1200 120z' className='fill-[#95f80a]'></path>
         </svg>
       </div>
-      <div className='heroContent flex-col lg:flex h-[100%] max-w-[100vw]'>
+      <div className='heroContent grid place-content-center place-items-center gap-12 lg:flex-col lg:flex h-[100%] max-w-[100vw]'>
         <img
           src={andyMain}
-          className='rain drop-shadow-2xl ml-6 lg:h-[75%] lg:shadow-2xl border-8 border-sky-500 lg:absolute lg:left-20 lg:top-20'
+          className='rain drop-shadow-2xl lg:h-[75%] lg:shadow-2xl border-8 border-sky-500 lg:absolute lg:left-20 lg:top-20'
           alt=''
         />
         <div className='lg:w-[60vw] lg:h-fit lg:rotate-[28deg] lg:absolute lg:top-[35vh] lg:right-12 bg-neutral-300 rounded-xl p-2 mt-2 drop-shadow-2xl shadow-2xl'>
@@ -35,10 +35,8 @@ export default function Hero() {
             knew on sight, he was the one I would imitate and base myself on.
           </p>
         </div>
-        <div className=' lg:absolute lg:bottom-[25%] lg:left-[33%] w-96 pt-2'>
-          “Art is anything you can get away with. -Andy Warhol”
-          <br />
-          -Andy Chill
+        <div className=' lg:absolute lg:bottom-[25%] lg:left-[33%] w-96 bg-neutral-300 rounded-xl p-2 mb-8'>
+          “Art is anything you can get away with. -Andy Warhol” -Andy Chill
         </div>
       </div>
     </m.section>
