@@ -74,8 +74,8 @@ export default function Navbar({ setAccounts, accounts }) {
     });
 
     const { uri } = authClient.request({
-      aud: "https://yourapp.com/",
-      domain: "yourapp.com",
+      aud: "https://andychill.art/",
+      domain: "andychill.ary",
       chainId: "0x86",
       type: "eip4361",
       nonce: generateNonce(),
@@ -127,7 +127,7 @@ export default function Navbar({ setAccounts, accounts }) {
             <div className='h-[15%] flex flex-col justify-between'>
               <button
                 onClick={() => {
-                  connectWallet;
+                  connectWallet();
                   setToggleMenu(false);
                 }}
                 className='flex w-[100%] justify-evenly border-b-2 p-6'
@@ -137,7 +137,7 @@ export default function Navbar({ setAccounts, accounts }) {
               </button>
               <button
                 onClick={() => {
-                  walletConnect;
+                  walletConnect();
                   setToggleMenu(false);
                 }}
               >
