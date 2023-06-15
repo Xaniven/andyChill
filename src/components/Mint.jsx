@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ethers, BigNumber } from "ethers";
 import { motion as m } from "framer-motion";
-import * as andychill from "/andychill.json";
+import * as andychill from "../andychill.json";
 import shots from "/assets/IMG-0179.png";
 import Spinner from "./Spinner";
 import "../App.scss";
