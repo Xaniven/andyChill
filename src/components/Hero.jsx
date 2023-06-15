@@ -1,4 +1,3 @@
-import andyMain from "../assets/IMG-0193.png";
 import { motion as m } from "framer-motion";
 
 export default function Hero() {
@@ -23,7 +22,7 @@ export default function Hero() {
       </div>
       <div className='heroContent grid place-content-center place-items-center gap-12 lg:flex-col lg:flex h-[100%] max-w-[100vw]'>
         <img
-          src={andyMain}
+          src='/assets/IMG-0193.PNG'
           className='rain drop-shadow-2xl lg:h-[75%] lg:shadow-2xl border-8 border-sky-500 lg:absolute lg:left-20 lg:top-20'
           alt=''
         />

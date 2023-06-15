@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { ethers, BigNumber } from "ethers";
-import Spinner from "./Spinner";
-import { moveToPolygon } from "./Navbar";
-import * as andychill from "../andychill.json";
 import { motion as m } from "framer-motion";
-import shots from "../assets/IMG-0179.png";
+import * as andychill from "../andychill.json";
+import Spinner from "./Spinner";
 import "../App.scss";
 
 // mumbai contract "0x3eE23a24eF93bc260a4E02E7913e0a6118228749";
@@ -82,7 +80,7 @@ export default function Mint({ accounts }) {
         <div className='h-[fit] lg:w-[50vw] bg-slate-300 rounded-xl border-4 border-slate-800 grid place-content-center p-2'>
           <div className='w-[100%] grid place-content-center'>
             <img
-              src={shots}
+              src='/assets/IMG-0179.PNG'
               width={"240px"}
               alt=''
               className='rain border-4 border-black hover:scale-150'

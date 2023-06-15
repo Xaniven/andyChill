@@ -1,5 +1,4 @@
 import { motion as m } from "framer-motion";
-import andysec from "../assets/IMG-0177.png";
 import "../App.scss";
 
 export default function About() {
@@ -20,7 +19,7 @@ export default function About() {
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2 }}
-        src={andysec}
+        src='/assets/IMG-0177.png'
         alt=''
         className='rain drop-shadow-2xl shadow-2xl  lg:h-[75%] border-8 border-sky-500 lg:absolute right-20 top-20 opacity-90  '
       />
