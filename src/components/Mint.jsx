@@ -77,7 +77,7 @@ export default function Mint({ accounts }) {
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5 }}
-        className='min-h-[fit] lg:w-[60vw] bg-slate-500 border-2 border-black rounded-xl grid place-content-center text-center p-4 z-50'
+        className='min-h-[fit] lg:w-[60vw] bg-slate-500 border-2 border-black rounded-xl grid place-content-center text-center p-4 z-10'
       >
         <div className='h-[fit] lg:w-[50vw] bg-slate-300 rounded-xl border-4 border-slate-800 grid place-content-center p-2'>
           <div className='w-[100%] grid place-content-center'>

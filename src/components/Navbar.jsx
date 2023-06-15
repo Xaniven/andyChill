@@ -1,25 +1,11 @@
-import { AuthClient, generateNonce } from "@walletconnect/auth-client";
-import { Web3Modal } from "@web3modal/standalone";
+import { useWeb3Modal } from "@web3modal/react";
+import { useAccount } from "wagmi";
 import { BsDiscord } from "react-icons/bs";
 import MMfox from "../assets/MetaMask_Fox.svg";
 import WC from "../assets/WC.svg";
 import CB from "../assets/CB.svg";
 import "../App.scss";
 import { useState } from "react";
-
-const projectId = import.meta.env.VITE_WALLET_CONNECT_KEY;
-
-const web3Modal = new Web3Modal({
-  projectId,
-  walletConnectVersion: 2,
-  // desktopWallets: [
-  //   {
-  //     id: string,
-  //     name: string,
-  //     links: { native: string, universal: string },
-  //   },
-  // ],
-});
 
 //make sure user is on polygon network
 export async function moveToPolygon() {
@@ -43,6 +29,8 @@ export async function moveToPolygon() {
 
 export default function Navbar({ setAccounts, accounts }) {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const { open, close } = useWeb3Modal();
+  const { address, isConnected } = useAccount();
 
   //connect metamask and coinbase wallet
   async function connectWallet() {
@@ -50,42 +38,13 @@ export default function Navbar({ setAccounts, accounts }) {
       const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
-
-      console.log(accounts);
       setAccounts(accounts);
       moveToPolygon();
+    } else {
+      alert("Metamask/Injected provider no detected");
     }
   }
 
-  //open WalletConnect modal
-  async function walletConnect() {
-    //Wallet Connect
-    const authClient = await AuthClient.init({
-      projectId,
-      metadata: {
-        name: "Andy Chill",
-        description: "Andy Chillmeleon NFT",
-        url: "https://andy.chill",
-        icons: ["https://lab.web3modal.com/favicon.ico"],
-      },
-    });
-    authClient.on("auth_response", () => {
-      web3Modal.closeModal();
-    });
-
-    const { uri } = authClient.request({
-      aud: "https://andychill.art/",
-      domain: "andychill.ary",
-      chainId: "0x86",
-      type: "eip4361",
-      nonce: generateNonce(),
-      statement: "Sign in with wallet, to chill with Andy",
-    });
-    const walletConnectWallet = await web3Modal.openModal({ uri });
-    console.log(walletConnectWallet);
-    setAccounts(walletConnectWallet);
-    moveToPolygon();
-  }
   return (
     <>
       <nav
@@ -137,8 +96,9 @@ export default function Navbar({ setAccounts, accounts }) {
               </button>
               <button
                 onClick={() => {
-                  walletConnect();
+                  open();
                   setToggleMenu(false);
+                  setAccounts([address]);
                 }}
               >
                 {" "}
@@ -222,7 +182,10 @@ export default function Navbar({ setAccounts, accounts }) {
                       <img src={CB} width={"98px"} alt='' />
                     </div>
                     <div
-                      onClick={walletConnect}
+                      onClick={() => {
+                        open();
+                        setAccounts([address]);
+                      }}
                       className='w-[100%] h-16  aspect-square grid place-items-center border-b-2 border-black text-black hover:bg-slate-400 p-1'
                       aria-label='WalletConnect Button'
                     >
