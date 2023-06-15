@@ -1,10 +1,10 @@
 import { useWeb3Modal } from "@web3modal/react";
 import { useAccount } from "wagmi";
 import { BsDiscord } from "react-icons/bs";
-import MMfox from "../assets/MetaMask_Fox.svg";
-import CB from "../assets/CB.svg";
-import WC from "../assets/WC.svg";
-import WC2 from "../assets/WC2.svg";
+import MMfox from "/assets/MetaMask_Fox.svg";
+import CB from "/assets/CB.svg";
+import WC from "/assets/WC.svg";
+import WC2 from "/assets/WC2.svg";
 import "../App.scss";
 import { useState } from "react";
 

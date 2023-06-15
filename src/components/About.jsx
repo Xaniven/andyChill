@@ -1,5 +1,5 @@
 import { motion as m } from "framer-motion";
-import andysec from "../assets/IMG-0177.png";
+import andysec from "/assets/IMG-0177.png";
 import "../App.scss";
 
 export default function About() {

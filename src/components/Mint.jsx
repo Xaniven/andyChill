@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { ethers, BigNumber } from "ethers";
-import Spinner from "./Spinner";
-import { moveToPolygon } from "./Navbar";
-import * as andychill from "../andychill.json";
 import { motion as m } from "framer-motion";
-import shots from "../assets/IMG-0179.png";
+import * as andychill from "/andychill.json";
+import shots from "/assets/IMG-0179.png";
+import Spinner from "./Spinner";
 import "../App.scss";
 
 // mumbai contract "0x3eE23a24eF93bc260a4E02E7913e0a6118228749";

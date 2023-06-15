@@ -1,4 +1,4 @@
-import andyMain from "../assets/IMG-0193.png";
+import andyMain from "/assets/IMG-0193.png";
 import { motion as m } from "framer-motion";
 
 export default function Hero() {
