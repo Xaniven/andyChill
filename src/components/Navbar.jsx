@@ -2,8 +2,9 @@ import { useWeb3Modal } from "@web3modal/react";
 import { useAccount } from "wagmi";
 import { BsDiscord } from "react-icons/bs";
 import MMfox from "../assets/MetaMask_Fox.svg";
-import WC from "../assets/WC.svg";
 import CB from "../assets/CB.svg";
+import WC from "../assets/WC.svg";
+import WC2 from "../assets/WC2.svg";
 import "../App.scss";
 import { useState } from "react";
 
@@ -164,8 +165,19 @@ export default function Navbar({ setAccounts, accounts }) {
                       {" "}
                       Current Wallet: <br /> {accounts[0]}
                     </p>
+                    {console.log(isConnected)}
+                    {isConnected ? (
+                      <button
+                        className=' p-2 bottom-0 left-2 absolute border-4 bg-sky-600  rounded-2xl hover:bg-sky-500 mb-2'
+                        onClick={() => open()}
+                      >
+                        <img src={WC2} className='' width={"32px"} alt='' />
+                      </button>
+                    ) : (
+                      ""
+                    )}
                     <button
-                      className=' p-2 border-4 bg-sky-600  rounded-2xl hover:bg-sky-500 mb-2'
+                      className=' relaive right-0  p-2 border-4 bg-sky-600  rounded-2xl hover:bg-sky-500 mb-2'
                       onClick={() => setAccounts([])}
                     >
                       Disconnect
